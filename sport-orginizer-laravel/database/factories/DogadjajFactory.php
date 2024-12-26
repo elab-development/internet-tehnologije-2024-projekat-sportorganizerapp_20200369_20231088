@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Dogadjaj;
-use App\Models\TipDogadjaja;
+use App\Models\Tip;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DogadjajFactory extends Factory
@@ -16,7 +16,7 @@ class DogadjajFactory extends Factory
             'datum' => $this->faker->date(),
             'vreme' => $this->faker->time(),
             'lokacija' => $this->faker->address(),
-            'tip_dogadjaja' => TipDogadjaja::factory(),
+            'tip_dogadjaja' => Tip::factory(),
             'cena_karte' => $this->faker->randomFloat(2, 100, 1000),
             'vrsta_sporta' => $this->faker->randomElement([
                 'hokej', 'kosarka', 'vaterpolo', 'fudbal', 'ragbi', 'americki fudbal', 'stoni tenis',

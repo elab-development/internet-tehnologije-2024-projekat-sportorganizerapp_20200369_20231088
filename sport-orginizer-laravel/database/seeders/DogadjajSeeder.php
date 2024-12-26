@@ -4,13 +4,13 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Dogadjaj;
-use App\Models\TipDogadjaja;
+use App\Models\Tip;
 
 class DogadjajSeeder extends Seeder
 {
     public function run(): void
     {
-        $tipovi = TipDogadjaja::all();
+        $tipovi = Tip::all();
 
         Dogadjaj::factory()
             ->count(20)

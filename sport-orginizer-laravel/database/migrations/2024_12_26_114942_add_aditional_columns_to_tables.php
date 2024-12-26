@@ -19,7 +19,7 @@ return new class extends Migration
             ])->after('cena_karte');
         });
 
-        Schema::create('tipovi', function (Blueprint $table) {
+        Schema::table('tipovi', function (Blueprint $table) {
             $table->enum('rang_vaznosti', [
                 'nizak', 'srednji', 'visok'
             ])->after('naziv');
