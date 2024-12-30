@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DogadjajController;
 
@@ -13,6 +13,7 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::put('/dogadjaji/{dogadjaj}', [DogadjajController::class, 'update']);
   Route::delete('/dogadjaji/{dogadjaj}', [DogadjajController::class, 'destroy']);
   Route::get('/dogadjaji/metrics', [DogadjajController::class, 'metrics']);
+  Route::get('/dogadjaji/export', [DogadjajController::class, 'exportToExcel']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

@@ -6,6 +6,9 @@ use App\Models\Dogadjaj;
 use Illuminate\Http\Request;
 use App\Http\Resources\DogadjajResource;
 use Illuminate\Support\Facades\Auth;
+use App\Exports\DogadjajiExport;
+use Maatwebsite\Excel\Facades\Excel;
+//use App\Exports\UsersExport;
 
 class DogadjajController extends Controller
 {
@@ -137,4 +140,22 @@ class DogadjajController extends Controller
 
         return response()->json($metrics);
     }
+
+    /**
+    * Export događaja u Excel (samo za moderatore).
+    */
+    public function exportToExcel()
+    {
+        if (!Auth::check()) {
+            return response()->json(['error' => 'Morate biti ulogovani da biste eksportovali podatke.'], 401);
+        }
+
+        if (Auth::user()->user_type !== 'moderator') {
+            return response()->json(['error' => 'Samo moderatori mogu eksportovati podatke.'], 403);
+        }
+
+        return Excel::download(new DogadjajiExport, 'dogadjaji.xlsx');
+    }
+
+
 }
