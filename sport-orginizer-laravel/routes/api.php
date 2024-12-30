@@ -15,5 +15,11 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::get('/dogadjaji/metrics', [DogadjajController::class, 'metrics']);
   Route::get('/dogadjaji/export', [DogadjajController::class, 'exportToExcel']);
 
-    Route::post('/logout', [AuthController::class, 'logout']);
+
+  Route::get('/rezervacije', [RezervacijaController::class, 'index']);
+  Route::post('/rezervacije', [RezervacijaController::class, 'store']);
+  Route::patch('/rezervacije/{rezervacija}', [RezervacijaController::class, 'update']);
+  Route::delete('/rezervacije/{rezervacija}', [RezervacijaController::class, 'destroy']);
+
+  Route::post('/logout', [AuthController::class, 'logout']);
 });
