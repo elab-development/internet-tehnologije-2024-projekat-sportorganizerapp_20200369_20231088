@@ -22,7 +22,7 @@ class Dogadjaj extends Model
 
     public function tip()
     {
-        return $this->belongsTo(TipDogadjaja::class, 'tip_dogadjaja');
+        return $this->belongsTo(Tip::class, 'tip_dogadjaja');
     }
 
     public function rezervacije()

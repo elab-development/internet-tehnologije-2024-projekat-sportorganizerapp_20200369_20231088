@@ -157,5 +157,28 @@ class DogadjajController extends Controller
         return Excel::download(new DogadjajiExport, 'dogadjaji.xlsx');
     }
 
+    /**
+     * Prikaz pojedinačnog događaja na osnovu ID-ja.
+     */
+    public function show($id)
+    {
+        if (!Auth::check()) {
+            return response()->json(['error' => 'Morate biti ulogovani da biste videli događaj.'], 401);
+        }
+
+        if (Auth::user()->user_type !== 'obican_korisnik' && Auth::user()->user_type !== 'moderator') {
+            return response()->json(['error' => 'Nemate dozvolu za pregled događaja.'], 403);
+        }
+
+        $dogadjaj = Dogadjaj::find($id);
+
+        if (!$dogadjaj) {
+            return response()->json(['error' => 'Događaj nije pronađen.'], 404);
+        }
+
+        return new DogadjajResource($dogadjaj);
+    }
+
+
 
 }

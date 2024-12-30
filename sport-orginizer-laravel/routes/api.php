@@ -1,5 +1,4 @@
 <?php
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DogadjajController;
 use App\Http\Controllers\TipController;
@@ -16,6 +15,7 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::delete('/dogadjaji/{dogadjaj}', [DogadjajController::class, 'destroy']);
   Route::get('/dogadjaji/metrics', [DogadjajController::class, 'metrics']);
   Route::get('/dogadjaji/export', [DogadjajController::class, 'exportToExcel']);
+  Route::get('/dogadjaji/{id}', [DogadjajController::class, 'show']);
 
 
   Route::get('/rezervacije', [RezervacijaController::class, 'index']);
