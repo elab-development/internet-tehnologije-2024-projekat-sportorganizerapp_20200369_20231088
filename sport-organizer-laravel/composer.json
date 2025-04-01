@@ -7,10 +7,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "ext-fileinfo": "*",
+        "ext-gd": "*",
         "laravel/framework": "^11.31",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "maatwebsite/excel": "*",
+        "maatwebsite/excel": "^3.1",
+        "phpoffice/phpspreadsheet": "*",
         "psr/simple-cache": "1.0"
     },
     "require-dev": {

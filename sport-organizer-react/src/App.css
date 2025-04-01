@@ -1,0 +1,119 @@
+/* Pozadina i centriranje forme */
+.auth-container {
+  background: linear-gradient(to bottom right, #ffffff, #34A853);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Stilovi same forme */
+.auth-form {
+  background: #fff;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+/* Naslov forme */
+.auth-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #34A853;
+}
+
+/* Grupisanje input polja */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Wrapper za input i ikonu */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Stil ikone */
+.input-icon {
+  margin-left: 8px;
+  color: #34A853;
+}
+
+/* Stil za input polja */
+.input-field {
+  border: none;
+  outline: none;
+  padding: 8px;
+  flex: 1;
+}
+
+/* Dugme za prijavu/registraciju */
+.auth-button {
+  background: #34A853;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Poruke o grešci i uspehu */
+.auth-error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.auth-success {
+  color: green;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Stil za select grupu */
+.select-group {
+  margin-bottom: 20px;
+}
+
+.select-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.select-group select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Link za prelazak između login/registracije */
+.switch-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.switch-link a {
+  text-decoration: none;
+  color: #34A853;
+  font-weight: bold;
+}
+
+/* Stil za logo sliku */
+.logo {
+  display: block;
+  margin: 0 auto 10px;
+  width: 200px;
+}
