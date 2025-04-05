@@ -945,6 +945,96 @@ body, html {
   margin-top: 20px;
 }
 
+/* Glavni kontejner za profil: dva bloka (levo i desno) */
+.profil-container {
+  display: flex;
+  gap: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Leva strana: kružni avatar i ime ispod */
+.profil-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+}
+
+/* Kružni avatar: zelena pozadina, bela slova */
+.profil-avatar {
+  width: 120px;
+  height: 120px;
+  background-color: #34a853;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Inicijal imena unutar avatara */
+.avatar-letter {
+  text-transform: uppercase;
+}
+
+/* Ime korisnika ispod avatara */
+.profil-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+/* Desna strana: zaobljena kartica */
+.profil-right {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Naslov (npr. "Moj profil") */
+.profil-title {
+  margin-bottom: 15px;
+  color: #34a853;
+  font-size: 1.8rem;
+}
+
+/* Detalji o korisniku (email, tip korisnika, datum...) */
+.profil-details {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #555;
+}
+
+.profil-details p {
+  margin-bottom: 10px;
+}
+
+/* Responsivnost: na manjim ekranima slaganje u kolonu */
+@media (max-width: 768px) {
+  .profil-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profil-left {
+    width: auto;
+  }
+  .profil-right {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
 
 /* Animacija za fade-in */
 @keyframes fade {
