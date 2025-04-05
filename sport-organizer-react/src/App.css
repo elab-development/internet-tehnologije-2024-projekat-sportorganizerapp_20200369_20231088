@@ -1021,6 +1021,60 @@ body, html {
   margin-bottom: 10px;
 }
 
+/* Kontejner za rezervacije */
+.rezervacije-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Naslov */
+.rezervacije-container h2 {
+  text-align: center;
+  color: #34a853;
+  margin-bottom: 20px;
+}
+
+/* Tabela rezervacija */
+.rezervacije-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.rezervacije-table th,
+.rezervacije-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.rezervacije-table thead th {
+  background-color: #34a853;
+  color: #fff;
+  font-weight: 600;
+}
+
+.rezervacije-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.rezervacije-table tbody tr:hover {
+  background-color: #e6f9e6;
+}
+
+@media (max-width: 768px) {
+  .rezervacije-table th,
+  .rezervacije-table td {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
 /* Responsivnost: na manjim ekranima slaganje u kolonu */
 @media (max-width: 768px) {
   .profil-container {

@@ -7,6 +7,7 @@ import Dogadjaj from "./pages/Dogadjaj";
 import Dogadjaji from "./pages/Dogadjaji";
 import ONama from "./pages/ONama";
 import MojProfil from "./pages/MojProfil";
+import MojeRezervacije from "./pages/MojeRezervacije";
 import Navigacija from "./components/Navigacija";
 import Futer from "./components/Futer";
 import "./App.css";
@@ -47,6 +48,7 @@ function App() {
         <Route path="/dogadjaj/:id" element={<Dogadjaj token={token}/>} />
         <Route path="/onama" element={<ONama />} />
         <Route path="/moj-profil" element={<MojProfil user={user} />} />
+        <Route path="/moje-rezervacije" element={<MojeRezervacije token={token} />} />
         <Route path="/" element={<Prijava />} />
         <Route path="/register" element={<Registracija />} />
       </Routes>
