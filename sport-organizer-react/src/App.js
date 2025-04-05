@@ -5,9 +5,11 @@ import Registracija from "./pages/Registracija";
 import Pocetna from "./pages/Pocetna";
 import Dogadjaj from "./pages/Dogadjaj";
 import Dogadjaji from "./pages/Dogadjaji";
+import DogadjajiModerator from "./pages/DogadjajiModerator";
 import ONama from "./pages/ONama";
 import MojProfil from "./pages/MojProfil";
 import MojeRezervacije from "./pages/MojeRezervacije";
+import ModeratorPocetna from "./pages/ModeratorPocetna"
 import Navigacija from "./components/Navigacija";
 import Futer from "./components/Futer";
 import "./App.css";
@@ -44,7 +46,9 @@ function App() {
       {user &&  <Navigacija user={user} token={token} />}
       <Routes>
         <Route path="/pocetna" element={<Pocetna />} />
+        <Route path="/pocetna-moderator" element={<ModeratorPocetna />} />
         <Route path="/dogadjaji" element={<Dogadjaji token={token}/>} />
+        <Route path="/dogadjaji-moderator" element={<DogadjajiModerator token={token}/>} />
         <Route path="/dogadjaj/:id" element={<Dogadjaj token={token}/>} />
         <Route path="/onama" element={<ONama />} />
         <Route path="/moj-profil" element={<MojProfil user={user} />} />

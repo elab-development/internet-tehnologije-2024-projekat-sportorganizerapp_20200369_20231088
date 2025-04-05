@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Svi slider PNG fajlovi
 const imageList = [
@@ -21,6 +22,7 @@ const imageList = [
 
 const Pocetna = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   // Menjamo sliku svake 3 sekunde
   useEffect(() => {
@@ -40,8 +42,8 @@ const Pocetna = () => {
             Uživajte u sportskim događajima, organizujte turnire i povežite se
             sa drugim ljubiteljima sporta! Pridružite nam se već danas.
           </p>
-          <button className="hero-button">Saznaj više</button>
-          <button className="hero-button">Pogledaj sportske dogadjaje</button>
+          <button className="hero-button" onClick={() => {navigate("/onama")}}>Saznaj više</button>
+          <button className="hero-button" onClick={() => {navigate("/dogadjaji")}}>Pogledaj sportske dogadjaje</button>
         </div>
 
         {/* Deo za hero pozadinu i slider */}

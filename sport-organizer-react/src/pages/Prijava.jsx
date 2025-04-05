@@ -28,7 +28,11 @@ const Prijava = () => {
       setPoruka(res.data.message);
       setGreska("");
       alert(res.data.message);
-      navigate("/pocetna");
+      if(res.data.user.user_type === "obican_korisnik"){
+        navigate("/pocetna");        
+      }else{
+        navigate("/pocetna-moderator");  
+      }
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
         setGreska(error.response.data.error);

@@ -274,6 +274,7 @@ body, html {
   padding: 8px 10px;
   text-decoration: none;
   font-size: 15px;
+  width: 100px;
   color: #333;
   border: none;
   background: none;
@@ -950,7 +951,7 @@ body, html {
   display: flex;
   gap: 20px;
   max-width: 900px;
-  margin: 40px auto;
+  margin: 200px auto;
   padding: 20px;
   background: #fff;
   border-radius: 12px;
@@ -1024,6 +1025,7 @@ body, html {
 /* Kontejner za rezervacije */
 .rezervacije-container {
   max-width: 1200px;
+  min-height: 500px;
   margin: 40px auto;
   padding: 20px;
   background-color: #fff;
@@ -1065,6 +1067,120 @@ body, html {
 
 .rezervacije-table tbody tr:hover {
   background-color: #e6f9e6;
+}
+
+/* Kontejner za stranicu */
+.pocetna-container1 {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* Hero sekcija */
+.pocetna-hero1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Tekstualni deo */
+.hero-text1 {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-text1 h1 {
+  font-size: 2.8rem;
+  color: #34a853;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-text1 p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Dugmad unutar hero sekcije */
+.hero-buttons1 {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-button1 {
+  background-color: #34a853;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.hero-button1:hover {
+  background-color: #2e9447;
+}
+
+/* Kontejner za hero pozadinsku sliku */
+.hero-bg-container1 {
+  position: relative;
+  width: 800px;   /* Po želji prilagodite širinu */
+  height: 600px;  /* i visinu hero sekcije */
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* Pozadinska slika (hero.png) se postavlja preko background property */
+.hero-bg1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../public/images/hero.png") no-repeat center center;
+  background-size: contain; /* da ostane cela, može biti i cover ako želite da ispuni kontejner */
+}
+
+.img-container1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; 
+}
+
+.moderator-img{
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+/* Responsivnost */
+@media (max-width: 768px) {
+  .pocetna-hero1 {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-bg-container1 {
+    width: 100%;
+    height: 300px;
+  }
+  .hero-text1 h1 {
+    font-size: 2.2rem;
+  }
 }
 
 @media (max-width: 768px) {

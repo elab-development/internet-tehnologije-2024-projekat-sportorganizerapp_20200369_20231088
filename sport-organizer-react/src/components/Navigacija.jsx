@@ -7,49 +7,64 @@ const Navigacija = ({ user, token }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Otvara ili zatvara dropdown meni
+  // Toggle dropdown meni
   const handleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  // Metoda za logout: poziva backend i čisti sessionStorage
+  // Logout metoda: poziva backend, čisti sessionStorage i preusmerava korisnika na login stranicu
   const handleLogout = async () => {
     try {
       await axios.post("http://127.0.0.1:8000/api/logout", {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       sessionStorage.clear();
-      alert("Uspesno odjavljivanje...");
-      navigate("/"); // Preusmerava na početnu (login) stranicu
+      alert("Uspešno odjavljivanje...");
+      navigate("/");
     } catch (error) {
       console.error("Logout error:", error);
     }
   };
 
-  // Prvo slovo imena korisnika, ili default "U"
+  // Prvo slovo imena korisnika ili "U" kao default
   const firstLetter = user?.name?.charAt(0).toUpperCase() || "U";
+
+  // Provera: da li je korisnik regularan ("obican_korisnik")
+  const isRegularUser = user?.user_type === "obican_korisnik";
 
   return (
     <nav className="nav-container">
       <div className="nav-left">
-        {/* Logo: Proverite da li putanja odgovara vašem assets folderu */}
         <img src="/images/logo.png" alt="Sportify Logo" className="nav-logo" />
       </div>
 
       <div className="nav-right">
-        <Link to="/pocetna">Početna</Link>
-        <Link to="/dogadjaji">Događaji</Link>
-        <Link to="/onama">O Nama</Link>
+        {isRegularUser ? (
+          <>
+            <Link to="/pocetna">Početna</Link>
+            <Link to="/dogadjaji">Događaji</Link>
+            <Link to="/onama">O Nama</Link>
+          </>
+        ) : (
+          <>
+            <Link to="/dogadjaji-moderator">Dogadjaji</Link>
+            <Link to="/metrike">Metrike</Link>
+          </>
+        )}
 
         <div className="nav-user" onClick={handleDropdown}>
           <div className="avatar">{firstLetter}</div>
-          <span className="username">{user?.name || "Korisnik"}</span>
+          {isRegularUser && <span className="username">{user?.name || "Korisnik"}</span>}
           <FaAngleDown className="dropdown-icon" />
 
           {dropdownOpen && (
             <div className="dropdown-menu">
-              <Link to="/moj-profil">Moj Profil</Link>
-              <Link to="/moje-rezervacije">Moje Rezervacije</Link>
+              {isRegularUser && (
+                <>
+                  <Link to="/moj-profil">Moj Profil</Link>
+                  <Link to="/moje-rezervacije">Moje Rezervacije</Link>
+                </>
+              )}
               <button className="logout-btn" onClick={handleLogout}>
                 Odjavi se
               </button>
