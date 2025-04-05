@@ -1234,6 +1234,54 @@ body, html {
   margin: 0 auto;
 }
 
+.breadcrumbs-container {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumbs {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.breadcrumb-link {
+  color: #34a853;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 5px;
+  color: #ccc;
+}
+
+.breadcrumb-current {
+  font-weight: 600;
+  color: #333;
+}
+
+.breadcrumb-back-btn {
+  background-color: #34a853;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.breadcrumb-back-btn:hover {
+  background-color: #2e9447;
+}
+
 @media (max-width: 768px) {
   .summary-card {
     width: 80%;

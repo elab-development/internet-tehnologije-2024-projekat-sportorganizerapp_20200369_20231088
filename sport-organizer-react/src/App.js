@@ -13,6 +13,7 @@ import ModeratorPocetna from "./pages/ModeratorPocetna";
 import Metrike from "./pages/Metrike";
 import Navigacija from "./components/Navigacija";
 import Futer from "./components/Futer";
+import Breadcrumbs from "./components/Breadcrumbs";
 import "./App.css";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
   return (
     <Router>
       {user &&  <Navigacija user={user} token={token} />}
+      {user && <Breadcrumbs user={user} />}
       <Routes>
         <Route path="/pocetna" element={<Pocetna />} />
         <Route path="/pocetna-moderator" element={<ModeratorPocetna />} />
