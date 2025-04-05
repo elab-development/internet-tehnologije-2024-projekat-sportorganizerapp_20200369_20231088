@@ -9,6 +9,8 @@
         "php": "^8.2",
         "ext-fileinfo": "*",
         "ext-gd": "*",
+        "egulias/email-validator": "3.2.1",
+        "laravel/airlock": "^4.0",
         "laravel/framework": "^11.31",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",

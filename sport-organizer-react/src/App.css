@@ -1,37 +1,97 @@
-/* Pozadina i centriranje forme */
+/* Reset i osnovni stilovi */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Glavni kontejner: delimo na dve polovine */
 .auth-container {
-  background: linear-gradient(to bottom right, #ffffff, #34A853);
-  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* LEVA STRANA - gradient pozadina i tekst */
+.auth-left {
+  flex: 1;
+  background: linear-gradient(135deg, #8df095, #34A853);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 40px;
+}
+
+/* Tekst na levoj strani */
+.auth-left h1 {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.auth-left p {
+  font-size: 1rem;
+  max-width: 400px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* DESNA STRANA - bela pozadina sa formom */
+.auth-right {
+  flex: 1;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Stilovi same forme */
+/* Sama forma (kontejner) */
 .auth-form {
-  background: #fff;
-  border-radius: 8px;
+  width: 320px;
   padding: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100px;
 }
 
 /* Naslov forme */
 .auth-header {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
   text-align: center;
   margin-bottom: 20px;
   color: #34A853;
+  font-size: 1.5rem;
 }
 
 /* Grupisanje input polja */
 .input-group {
   margin-bottom: 15px;
 }
-
 .input-group label {
   display: block;
   margin-bottom: 5px;
   color: #333;
+  font-weight: 500;
 }
 
 /* Wrapper za input i ikonu */
@@ -40,32 +100,25 @@
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+.input-wrapper:hover {
+  border-color: #34A853;
 }
 
-/* Stil ikone */
+/* Ikona unutar inputa */
 .input-icon {
   margin-left: 8px;
   color: #34A853;
 }
 
-/* Stil za input polja */
+/* Samo polje za unos */
 .input-field {
   border: none;
   outline: none;
   padding: 8px;
   flex: 1;
-}
-
-/* Dugme za prijavu/registraciju */
-.auth-button {
-  background: #34A853;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 20px;
+  font-size: 0.95rem;
 }
 
 /* Poruke o grešci i uspehu */
@@ -74,29 +127,48 @@
   text-align: center;
   margin-bottom: 10px;
 }
-
 .auth-success {
   color: green;
   text-align: center;
   margin-bottom: 10px;
 }
 
-/* Stil za select grupu */
+/* Dugme za prijavu/registraciju */
+.auth-button {
+  background: #34A853;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.auth-button:hover {
+  background: #2e9447;
+  transform: translateY(-2px);
+}
+.auth-button:active {
+  transform: translateY(0);
+}
+
+/* Selektor za tip korisnika u registraciji */
 .select-group {
   margin-bottom: 20px;
 }
-
 .select-group label {
   display: block;
   margin-bottom: 5px;
   color: #333;
 }
-
 .select-group select {
   width: 100%;
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
 }
 
 /* Link za prelazak između login/registracije */
@@ -104,16 +176,11 @@
   text-align: center;
   margin-top: 15px;
 }
-
 .switch-link a {
   text-decoration: none;
   color: #34A853;
   font-weight: bold;
 }
-
-/* Stil za logo sliku */
-.logo {
-  display: block;
-  margin: 0 auto 10px;
-  width: 200px;
+.switch-link a:hover {
+  text-decoration: underline;
 }
