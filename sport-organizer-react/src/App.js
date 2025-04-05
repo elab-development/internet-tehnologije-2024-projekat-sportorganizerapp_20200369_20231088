@@ -9,7 +9,8 @@ import DogadjajiModerator from "./pages/DogadjajiModerator";
 import ONama from "./pages/ONama";
 import MojProfil from "./pages/MojProfil";
 import MojeRezervacije from "./pages/MojeRezervacije";
-import ModeratorPocetna from "./pages/ModeratorPocetna"
+import ModeratorPocetna from "./pages/ModeratorPocetna";
+import Metrike from "./pages/Metrike";
 import Navigacija from "./components/Navigacija";
 import Futer from "./components/Futer";
 import "./App.css";
@@ -50,6 +51,7 @@ function App() {
         <Route path="/dogadjaji" element={<Dogadjaji token={token}/>} />
         <Route path="/dogadjaji-moderator" element={<DogadjajiModerator token={token}/>} />
         <Route path="/dogadjaj/:id" element={<Dogadjaj token={token}/>} />
+        <Route path="/metrike" element={<Metrike token={token}/>} />
         <Route path="/onama" element={<ONama />} />
         <Route path="/moj-profil" element={<MojProfil user={user} />} />
         <Route path="/moje-rezervacije" element={<MojeRezervacije token={token} />} />
