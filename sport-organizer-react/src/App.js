@@ -5,6 +5,7 @@ import Registracija from "./pages/Registracija";
 import Pocetna from "./pages/Pocetna";
 import Dogadjaj from "./pages/Dogadjaj";
 import Dogadjaji from "./pages/Dogadjaji";
+import ONama from "./pages/ONama";
 import Navigacija from "./components/Navigacija";
 import Futer from "./components/Futer";
 import "./App.css";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/pocetna" element={<Pocetna />} />
         <Route path="/dogadjaji" element={<Dogadjaji token={token}/>} />
         <Route path="/dogadjaj/:id" element={<Dogadjaj token={token}/>} />
+        <Route path="/onama" element={<ONama />} />
         <Route path="/" element={<Prijava />} />
         <Route path="/register" element={<Registracija />} />
       </Routes>
