@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 const Metrike = ({ token }) => {
   const [metrics, setMetrics] = useState(null);
   const [distribution, setDistribution] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Lista svih sportova (kao u bazi)
+  // Lista svih sportova kako je u bazi
   const allSports = [
     "hokej", "kosarka", "vaterpolo", "fudbal", "ragbi", "americki fudbal", "stoni tenis",
     "badminton", "golf", "kuglanje", "bilijar", "streljastvo", "atletika", "odbojka",
     "rukomet", "plivanje", "skakanje u vodu", "karate", "dzudo", "boks", "mma", "rvanje",
   ];
 
-  // Paleta boja – 22 boje (svaki sport dobija drugu boju)
+  // Paleta boja – 22 boje
   const colorPalette = [
     "#34a853", "#ff9800", "#3f51b5", "#e91e63", "#9c27b0", "#009688",
     "#00bcd4", "#4caf50", "#ff5722", "#795548", "#9e9e9e", "#673ab7",
@@ -26,7 +33,7 @@ const Metrike = ({ token }) => {
   ];
 
   useEffect(() => {
-    // Funkcija za učitavanje osnovnih metrika
+    // Učitavanje osnovnih metrika (najviše događaja po sportu i mesecu)
     const fetchMetrics = async () => {
       try {
         const res = await axios.get(
@@ -39,10 +46,10 @@ const Metrike = ({ token }) => {
       }
     };
 
-    // Funkcija za učitavanje svih događaja sa backend-a preko paginacije
+    // Učitavanje svih događaja kako bismo izračunali distribuciju po sportu
     const fetchAllEvents = async () => {
       try {
-        // Prvo učitamo prvu stranicu da dobijemo meta podatke
+        // Učitavamo prvu stranicu da dobijemo meta podatke
         const firstRes = await axios.get(
           `http://127.0.0.1:8000/api/dogadjaji`,
           {
@@ -54,7 +61,7 @@ const Metrike = ({ token }) => {
         const lastPage = firstRes.data.meta.last_page;
         let allEvents = [...firstPageData];
 
-        // Kreiramo niz zahteva za ostale stranice (ako ih ima više)
+        // Kreiramo niz zahteva za ostale stranice
         const pageRequests = [];
         for (let page = 2; page <= lastPage; page++) {
           pageRequests.push(
@@ -65,19 +72,17 @@ const Metrike = ({ token }) => {
           );
         }
 
-        // U paraleli dohvatimo ostale stranice
         const responses = await Promise.all(pageRequests);
         responses.forEach((res) => {
           allEvents = allEvents.concat(res.data.data);
         });
 
-        // Inicijalizujemo distribucioni objekat za sve sportove
+        // Inicijalizujemo distribucioni objekat za sve sportove sa 0
         const distObj = {};
         allSports.forEach((sport) => {
           distObj[sport] = 0;
         });
 
-        // Popunjavamo distribucioni objekat brojem događaja po sportu
         allEvents.forEach((ev) => {
           const sport = ev.vrsta_sporta;
           if (distObj.hasOwnProperty(sport)) {
@@ -87,13 +92,11 @@ const Metrike = ({ token }) => {
           }
         });
 
-        // Transformišemo u niz objekata: { vrsta_sporta, broj }
-        const distributionArray = Object.entries(distObj).map(
-          ([sport, broj]) => ({
-            vrsta_sporta: sport,
-            broj,
-          })
-        );
+        const distributionArray = Object.entries(distObj).map(([sport, broj]) => ({
+          vrsta_sporta: sport,
+          broj,
+        }));
+
         setDistribution(distributionArray);
       } catch (error) {
         console.error("Greška pri učitavanju svih događaja za distribuciju:", error);
@@ -125,11 +128,10 @@ const Metrike = ({ token }) => {
   const monthIndex = (najviseMesec?.mesec || 1) - 1;
   const monthLabel = monthNames[monthIndex] || `Mesec ${najviseMesec?.mesec}`;
 
-  // Podaci za Doughnut grafikon – distribucija događaja po sportu
+  // Podaci za Bar grafikon – distribucija događaja po sportu
   const distributionLabels = distribution.map((item) => item.vrsta_sporta);
   const distributionValues = distribution.map((item) => item.broj);
 
-  // Generišemo boje za svaki sport iz palete
   const backgroundColors = distributionLabels.map(
     (_, i) => colorPalette[i % colorPalette.length]
   );
@@ -139,7 +141,6 @@ const Metrike = ({ token }) => {
     labels: distributionLabels,
     datasets: [
       {
-        label: "Događaji po sportu",
         data: distributionValues,
         backgroundColor: backgroundColors,
         borderColor: borderColors,
@@ -149,13 +150,24 @@ const Metrike = ({ token }) => {
   };
 
   const chartOptions = {
+    indexAxis: "x",
     plugins: {
       legend: {
-        position: "top",
-        labels: { color: "#333", font: { size: 14 } },
+        display: false,
       },
     },
     maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: { color: "#333" },
+        grid: { color: "#f0f0f0" },
+      },
+      y: {
+        beginAtZero: true,
+        ticks: { color: "#333" },
+        grid: { color: "#f0f0f0" },
+      },
+    },
   };
 
   return (
@@ -186,11 +198,11 @@ const Metrike = ({ token }) => {
         </div>
       </div>
 
-      {/* Grafikon raspodele događaja po sportu */}
+      {/* Bar grafikon raspodele događaja po sportu */}
       <div className="distribution-section">
         <h3 className="distribution-title">Raspodela događaja po sportu</h3>
         <div className="chart-wrapper">
-          <Doughnut data={distributionData} options={chartOptions} />
+          <Bar data={distributionData} options={chartOptions} />
         </div>
       </div>
     </div>

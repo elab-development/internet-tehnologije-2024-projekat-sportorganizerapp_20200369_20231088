@@ -1230,9 +1230,21 @@ body, html {
 
 .chart-wrapper {
   height: 500px;
-  width: 500px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
 }
+
+/* Responsivnost */
+@media (max-width: 768px) {
+  .summary-card {
+    width: 80%;
+  }
+  .chart-wrapper {
+    height: 300px;
+  }
+}
+
 
 .breadcrumbs-container {
   background-color: #fff;

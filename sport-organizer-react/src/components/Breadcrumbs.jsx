@@ -22,8 +22,9 @@ const Breadcrumbs = ({ user }) => {
     <div className="breadcrumbs-container">
       <div className="breadcrumbs">
         <Link to={homeRoute} className="breadcrumb-link">
-          Home
+          Pocetna
         </Link>
+        <span> </span>
         {pathnames.map((name, index) => {
           const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
           var displayName = name.charAt(0).toUpperCase() + name.slice(1);
@@ -43,7 +44,7 @@ const Breadcrumbs = ({ user }) => {
             </span>
           ) : (
             <React.Fragment key={index}>
-              <span className="breadcrumb-separator">/</span>
+              <span className="breadcrumb-separator"> / </span>
               <Link to={routeTo} className="breadcrumb-link">
                 {displayName}
               </Link>
