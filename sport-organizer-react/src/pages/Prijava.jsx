@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Prijava = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [poruka, setPoruka] = useState("");
   const [greska, setGreska] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +27,8 @@ const Prijava = () => {
       );
       setPoruka(res.data.message);
       setGreska("");
+      alert(res.data.message);
+      navigate("/pocetna");
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
         setGreska(error.response.data.error);

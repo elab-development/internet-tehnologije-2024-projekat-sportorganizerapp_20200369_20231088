@@ -184,3 +184,223 @@ body, html {
 .switch-link a:hover {
   text-decoration: underline;
 }
+
+/* ---------------- NAVIGACIJA ---------------- */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky; /* Da navigacija ostane pri vrhu */
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 50px;
+  margin-right: 50px;
+  margin: 10px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Linkovi u navigaciji */
+.nav-right a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+  color: #34a853;
+}
+
+/* Avatar i dropdown */
+.nav-user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #34a853;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.username {
+  margin-right: 5px;
+}
+
+.dropdown-icon {
+  color: #555;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.dropdown-menu a,
+.logout-btn {
+  padding: 8px 10px;
+  text-decoration: none;
+  color: #333;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover,
+.logout-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* ---------------- POČETNA STRANA ---------------- */
+.pocetna-container {
+  width: 100%;
+  background-color: #fff;
+}
+
+.pocetna-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  gap: 20px;
+  flex-wrap: wrap; /* Za manju širinu ekrana */
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #34a853;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.hero-button {
+  background-color: #34a853;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  margin-right: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #2e9447;
+}
+
+/* ---------------- HERO BG + SLIDER ---------------- */
+/* Kontejner koji sadrži i pozadinu i slider */
+.hero-bg-container {
+  position: relative;
+  width: 800px;   /* Po želji prilagodite širinu */
+  height: 600px;  /* i visinu hero sekcije */
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* hero.png kao pozadinska slika, "contain" da se ne skraćuje */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../public/images/hero.png") no-repeat center center;
+  background-size: contain; /* da ostane cela, može biti i cover ako želite da ispuni kontejner */
+}
+
+/* Sloj za slider slike (sportisti) */
+.slider-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* da klik ne prekine interakciju */
+}
+
+/* Slider PNG-ovi, prikazani "contain" da se vide cele siluete */
+.slider-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  animation: fade 1.5s ease-in-out;
+}
+
+/* Animacija za fade-in */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .pocetna-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-bg-container {
+    width: 100%;
+    height: 300px;
+  }
+}
