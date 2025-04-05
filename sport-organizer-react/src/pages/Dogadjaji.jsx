@@ -1,4 +1,3 @@
-// src/pages/Dogadjaji.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DogadjajKartica from "../components/DogadjajKartica";
