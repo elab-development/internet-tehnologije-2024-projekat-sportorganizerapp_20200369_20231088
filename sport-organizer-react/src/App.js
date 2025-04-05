@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Prijava from "./pages/Prijava";
 import Registracija from "./pages/Registracija";
 import Pocetna from "./pages/Pocetna";
+import Dogadjaj from "./pages/Dogadjaj";
+import Dogadjaji from "./pages/Dogadjaji";
 import Navigacija from "./components/Navigacija";
+import Futer from "./components/Futer";
 import "./App.css";
 
 function App() {
@@ -38,9 +41,12 @@ function App() {
       {user &&  <Navigacija user={user} token={token} />}
       <Routes>
         <Route path="/pocetna" element={<Pocetna />} />
+        <Route path="/dogadjaji" element={<Dogadjaji token={token}/>} />
+        <Route path="/dogadjaj/:id" element={<Dogadjaj token={token}/>} />
         <Route path="/" element={<Prijava />} />
         <Route path="/register" element={<Registracija />} />
       </Routes>
+      {user &&  <Futer/>}
     </Router>
   );
 }

@@ -116,7 +116,7 @@ const Registracija = () => {
           </button>
 
           <p className="switch-link">
-            Već imate nalog? <Link to="/login">Prijavite se</Link>
+            Već imate nalog? <Link to="/">Prijavite se</Link>
           </p>
         </form>
       </div>

@@ -37,7 +37,7 @@ const Navigacija = ({ user, token }) => {
       </div>
 
       <div className="nav-right">
-        <Link to="/">Početna</Link>
+        <Link to="/pocetna">Početna</Link>
         <Link to="/dogadjaji">Događaji</Link>
         <Link to="/onama">O Nama</Link>
 
@@ -48,9 +48,10 @@ const Navigacija = ({ user, token }) => {
 
           {dropdownOpen && (
             <div className="dropdown-menu">
-              <Link to="/profile">My Profile</Link>
+              <Link to="/profile">Moj Profil</Link>
+              <Link to="/moje-rezervacije">Moje Rezervacije</Link>
               <button className="logout-btn" onClick={handleLogout}>
-                Logout
+                Odjavi se
               </button>
             </div>
           )}
