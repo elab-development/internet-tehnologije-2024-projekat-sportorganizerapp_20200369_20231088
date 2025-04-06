@@ -26,7 +26,7 @@ const Breadcrumbs = ({ user }) => {
         </Link>
         <span> </span>
         {pathnames.map((name, index) => {
-          const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
+          var routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
           var displayName = name.charAt(0).toUpperCase() + name.slice(1);
           if(displayName === "Dogadjaji-moderator"){
             displayName = "Dogadjaji";
@@ -36,6 +36,9 @@ const Breadcrumbs = ({ user }) => {
             displayName = "Moje Rezervacije";
           } else if(displayName === "Onama"){
             displayName = "O Nama";
+          } else if(displayName === "Dogadjaj"){
+            displayName = "Dogadjaji ";
+            routeTo = "/dogadjaji"
           }
           const isLast = index === pathnames.length - 1;
           return isLast ? (
