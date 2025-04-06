@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Prijava from "./pages/Prijava";
 import Registracija from "./pages/Registracija";
 import Pocetna from "./pages/Pocetna";

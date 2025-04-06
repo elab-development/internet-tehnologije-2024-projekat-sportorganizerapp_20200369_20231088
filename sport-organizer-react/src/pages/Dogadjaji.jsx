@@ -4,9 +4,7 @@ import DogadjajKartica from "../components/DogadjajKartica";
 
 const Dogadjaji = ({ token }) => {
   const [events, setEvents] = useState([]);
-  const [filterTip, setFilterTip] = useState("");
   const [filterVrsta, setFilterVrsta] = useState("");
-  const [filterNaziv, setFilterNaziv] = useState("");
   const [sortCena, setSortCena] = useState(""); // "asc" ili "desc"
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -15,9 +13,7 @@ const Dogadjaji = ({ token }) => {
     const fetchEvents = async () => {
       try {
         const params = { page: currentPage };
-        if (filterTip) params.tip_dogadjaja = filterTip;
         if (filterVrsta) params.vrsta_sporta = filterVrsta;
-        if (filterNaziv) params.naziv = filterNaziv;
 
         const response = await axios.get(
           `http://127.0.0.1:8000/api/dogadjaji`,
@@ -40,7 +36,7 @@ const Dogadjaji = ({ token }) => {
     if (token) {
       fetchEvents();
     }
-  }, [filterTip, filterVrsta, filterNaziv, currentPage, token]);
+  }, [ filterVrsta, currentPage, token]);
 
   // Sortiramo učitane događaje (na trenutnoj stranici) po ceni ako je odabrano sortiranje
   const sortedEvents = [...events].sort((a, b) => {
