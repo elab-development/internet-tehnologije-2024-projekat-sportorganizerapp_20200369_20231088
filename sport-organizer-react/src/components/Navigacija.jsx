@@ -30,6 +30,9 @@ const Navigacija = ({ user, token }) => {
   const firstLetter = user?.name?.charAt(0).toUpperCase() || "U";
 
   // Provera: da li je korisnik regularan ("obican_korisnik")
+  // Dve vrste compare logickog operatora == i ===
+  // sa == --> 1 je isto sto i "1" --> String i Number su isto, ne proverava tipove, unstrict compare
+  // sa === --> 1 nije isto sto i "1" --> String i Number tip nisu isto, poredi i tipove, strict compare
   const isRegularUser = user?.user_type === "obican_korisnik";
 
   return (

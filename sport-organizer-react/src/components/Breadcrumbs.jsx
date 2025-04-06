@@ -6,12 +6,24 @@ const Breadcrumbs = ({ user }) => {
   const navigate = useNavigate();
 
   // Ne prikazujemo breadcrumbs na početnim stranicama
-  const noBreadcrumbRoutes = ["/", "/pocetna", "/pocetna-moderator"];
+  const noBreadcrumbRoutes = ["/","/register", "/pocetna", "/pocetna-moderator"];
   if (noBreadcrumbRoutes.includes(location.pathname)) {
     return null;
   }
 
   // Podeli putanju na segmente
+  //########################################################
+  // Primer 1
+  // location.pathname --> "/dogadjaji"
+  // nakon split("/") metode --> ["", "dogadjaji"]
+  // Falsy --> "", false, 0, undefined i null
+  // Truthy --> sve sto nije falsy
+  // na kraju pathnames je ["dogadjaji"]
+  //########################################################
+  // Primer 2
+  // location.pathname --> "/dogadjaj/2"
+  // nakon split("/") metode --> ["", "dogadjaj", "2"]
+  // na kraju pathnames je ["dogadjaj", "2"]
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   // Početna ruta zavisi od tipa korisnika
