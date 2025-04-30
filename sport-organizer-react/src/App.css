@@ -1,0 +1,1369 @@
+/* Reset i osnovni stilovi */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Glavni kontejner: delimo na dve polovine */
+.auth-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* LEVA STRANA - gradient pozadina i tekst */
+.auth-left {
+  flex: 1;
+  background: linear-gradient(135deg, #8df095, #34A853);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 40px;
+}
+
+/* Tekst na levoj strani */
+.auth-left h1 {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.auth-left p {
+  font-size: 1rem;
+  max-width: 400px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* DESNA STRANA - bela pozadina sa formom */
+.auth-right {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Sama forma (kontejner) */
+.auth-form {
+  width: 320px;
+  padding: 40px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100px;
+}
+
+/* Naslov forme */
+.auth-header {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #34A853;
+  font-size: 1.5rem;
+}
+
+/* Grupisanje input polja */
+.input-group {
+  margin-bottom: 15px;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Wrapper za input i ikonu */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+.input-wrapper:hover {
+  border-color: #34A853;
+}
+
+/* Ikona unutar inputa */
+.input-icon {
+  margin-left: 8px;
+  color: #34A853;
+}
+
+/* Samo polje za unos */
+.input-field {
+  border: none;
+  outline: none;
+  padding: 8px;
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+/* Poruke o grešci i uspehu */
+.auth-error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.auth-success {
+  color: green;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Dugme za prijavu/registraciju */
+.auth-button {
+  background: #34A853;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.auth-button:hover {
+  background: #2e9447;
+  transform: translateY(-2px);
+}
+.auth-button:active {
+  transform: translateY(0);
+}
+
+/* Selektor za tip korisnika u registraciji */
+.select-group {
+  margin-bottom: 20px;
+}
+.select-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+.select-group select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+/* Link za prelazak između login/registracije */
+.switch-link {
+  text-align: center;
+  margin-top: 15px;
+}
+.switch-link a {
+  text-decoration: none;
+  color: #34A853;
+  font-weight: bold;
+}
+.switch-link a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- NAVIGACIJA ---------------- */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky; /* Da navigacija ostane pri vrhu */
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 50px;
+  margin-right: 50px;
+  margin: 10px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Linkovi u navigaciji */
+.nav-right a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+  color: #34a853;
+}
+
+/* Avatar i dropdown */
+.nav-user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #34a853;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.username {
+  margin-right: 5px;
+}
+
+.dropdown-icon {
+  color: #555;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.dropdown-menu a,
+.logout-btn {
+  padding: 8px 10px;
+  text-decoration: none;
+  font-size: 15px;
+  width: 100px;
+  color: #333;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover,
+.logout-btn:hover {
+  background-color: #f5f5f5;
+  color: #34a853;
+}
+
+/* ---------------- POČETNA STRANA ---------------- */
+.pocetna-container {
+  width: 100%;
+  background-color: #fff;
+}
+
+.pocetna-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 200px;
+  padding: 40px 20px;
+  gap: 20px;
+  flex-wrap: wrap; /* Za manju širinu ekrana */
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #34a853;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.hero-button {
+  background-color: #34a853;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  margin-right: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #2e9447;
+}
+
+/* ---------------- HERO BG + SLIDER ---------------- */
+/* Kontejner koji sadrži i pozadinu i slider */
+.hero-bg-container {
+  position: relative;
+  width: 800px;   /* Po želji prilagodite širinu */
+  height: 600px;  /* i visinu hero sekcije */
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* hero.png kao pozadinska slika, "contain" da se ne skraćuje */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../public/images/hero.png") no-repeat center center;
+  background-size: contain; /* da ostane cela, može biti i cover ako želite da ispuni kontejner */
+}
+
+/* Sloj za slider slike (sportisti) */
+.slider-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* da klik ne prekine interakciju */
+}
+
+/* Slider PNG-ovi, prikazani "contain" da se vide cele siluete */
+.slider-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  animation: fade 1.5s ease-in-out;
+}
+
+.footer-container {
+  background-color: #34a853; /* zelena pozadina */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content p {
+  margin: 5px 0;
+}
+
+.footer-content a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: #c9f2d6;
+  text-decoration: underline;
+}
+
+.mail-icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 1.1rem;
+}
+
+/* Za Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5; /* Svetla pozadina trake */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #34a853; /* Zelena boja klizača */
+  border-radius: 6px;
+  border: 3px solid #f5f5f5; /* Prozirni prostor oko klizača */
+}
+
+/* Za Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #34a853 #f5f5f5;
+}
+
+/* ---------------- DOGAĐAJI GRID I KARTICE ---------------- */
+.dogadjaji-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.dogadjaji-container h2 {
+  color: #34a853;
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.filters label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+.filters select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dogadjaji-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.dogadjaj-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-image img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.dog-tip {
+  font-size: 1.1rem;
+  color: #34a853;
+  margin-bottom: 5px;
+}
+
+.dog-detalji {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.dog-cena {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pogledaj-vise-btn {
+  display: inline-block;
+  background-color: #34a853;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.pogledaj-vise-btn:hover {
+  background-color: #2e9447;
+}
+
+/* Paginacija */
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #fff;
+  color: #34a853;
+  border: 1px solid #34a853;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pagination button:hover {
+  background-color: #34a853;
+  color: #fff;
+}
+
+.active-page {
+  background-color: #34a853 !important;
+  color: #fff !important;
+}
+
+/* ---------------- DETALJI DOGAĐAJA ---------------- */
+.dogadjaj-detalji-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.dogadjaj-detalji-hero {
+  flex: 1;
+  text-align: center;
+}
+
+.dogadjaj-detalji-img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.dogadjaj-detalji-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dogadjaj-detalji-info h2 {
+  color: #34a853;
+  margin-bottom: 10px;
+}
+
+.rezervisi-btn {
+  background-color: #34a853;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.rezervisi-btn:hover {
+  background-color: #2e9447;
+}
+
+/* ---------------- DOGAĐAJI GRID I FILTERI ---------------- */
+.dogadjaji-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.dogadjaji-container h2 {
+  color: #34a853;
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters div {
+  display: flex;
+  align-items: center;
+}
+
+.filters label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.filters select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Grid layout: 5 kartica po redu */
+.dogadjaji-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* Kartica događaja */
+.dogadjaj-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-image img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.dog-tip {
+  font-size: 1.1rem;
+  color: #34a853;
+  margin-bottom: 5px;
+}
+
+.dog-detalji {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.dog-cena {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pogledaj-vise-btn {
+  display: inline-block;
+  background-color: #34a853;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.pogledaj-vise-btn:hover {
+  background-color: #2e9447;
+}
+
+/* Paginacija */
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #fff;
+  color: #34a853;
+  border: 1px solid #34a853;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pagination button:hover {
+  background-color: #34a853;
+  color: #fff;
+}
+
+.active-page {
+  background-color: #34a853;
+  color: #fff;
+}
+
+/* ---------------- NOVI STIL ZA DETALJE DOGAĐAJA ---------------- */
+
+/* Pozadina: gradijent, centriranje sadržaja */
+.dogadjaj-detalji-wrapper {
+  min-height: 100vh; /* da ispunjava visinu prozora */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Kartica: slika gore, tekst ispod */
+.dogadjaj-detalji-card {
+  background-color: #fff;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slika zauzima gornji deo kartice */
+.dogadjaj-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Sadržaj: raspored detalja */
+.dogadjaj-content {
+  padding: 20px;
+}
+
+.dogadjaj-naslov {
+  color: #34a853;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.dogadjaj-cena {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Ostali tekstualni detalji */
+.dogadjaj-content p {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Dugme za rezervaciju */
+.rezervisi-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #34a853;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.rezervisi-btn:hover {
+  background-color: #2e9447;
+}
+
+.onama-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: sans-serif;
+  color: #333;
+}
+
+/* Gornja hero sekcija */
+.onama-hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.onama-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #34a853; /* zelena boja */
+  font-weight: 700;
+}
+
+.onama-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Sekcija 'Meet the Principals' */
+.onama-meet {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.meet-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #34a853;
+  font-weight: 600;
+}
+
+.principals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.principal-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+  padding: 20px;
+}
+
+.principal-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.principal-name {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.principal-role {
+  font-size: 0.95rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.principal-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* Sekcija 'Naše usluge' */
+.onama-services {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.onama-services h2 {
+  font-size: 2rem;
+  color: #34a853;
+  margin-bottom: 20px;
+}
+
+.services-list {
+  list-style: none;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.services-list li {
+  margin-bottom: 15px;
+}
+
+/* Donja sekcija (socials) */
+.onama-socials {
+  text-align: center;
+  margin-top: 50px;
+  border-top: 1px solid #ccc;
+  padding-top: 40px;
+}
+
+.onama-socials h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #34a853;
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-link {
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #34a853;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #34a853;
+  color: #fff;
+}
+
+.onama-footer {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Glavni kontejner za profil: dva bloka (levo i desno) */
+.profil-container {
+  display: flex;
+  gap: 20px;
+  max-width: 900px;
+  margin: 200px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Leva strana: kružni avatar i ime ispod */
+.profil-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+}
+
+/* Kružni avatar: zelena pozadina, bela slova */
+.profil-avatar {
+  width: 120px;
+  height: 120px;
+  background-color: #34a853;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Inicijal imena unutar avatara */
+.avatar-letter {
+  text-transform: uppercase;
+}
+
+/* Ime korisnika ispod avatara */
+.profil-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+/* Desna strana: zaobljena kartica */
+.profil-right {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Naslov (npr. "Moj profil") */
+.profil-title {
+  margin-bottom: 15px;
+  color: #34a853;
+  font-size: 1.8rem;
+}
+
+/* Detalji o korisniku (email, tip korisnika, datum...) */
+.profil-details {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #555;
+}
+
+.profil-details p {
+  margin-bottom: 10px;
+}
+
+/* Kontejner za rezervacije */
+.rezervacije-container {
+  max-width: 1200px;
+  min-height: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Naslov */
+.rezervacije-container h2 {
+  text-align: center;
+  color: #34a853;
+  margin-bottom: 20px;
+}
+
+/* Tabela rezervacija */
+.rezervacije-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.rezervacije-table th,
+.rezervacije-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.rezervacije-table thead th {
+  background-color: #34a853;
+  color: #fff;
+  font-weight: 600;
+}
+
+.rezervacije-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.rezervacije-table tbody tr:hover {
+  background-color: #e6f9e6;
+}
+
+/* Kontejner za stranicu */
+.pocetna-container1 {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* Hero sekcija */
+.pocetna-hero1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Tekstualni deo */
+.hero-text1 {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-text1 h1 {
+  font-size: 2.8rem;
+  color: #34a853;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-text1 p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Dugmad unutar hero sekcije */
+.hero-buttons1 {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-button1 {
+  background-color: #34a853;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.hero-button1:hover {
+  background-color: #2e9447;
+}
+
+/* Kontejner za hero pozadinsku sliku */
+.hero-bg-container1 {
+  position: relative;
+  width: 800px;   /* Po želji prilagodite širinu */
+  height: 600px;  /* i visinu hero sekcije */
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* Pozadinska slika (hero.png) se postavlja preko background property */
+.hero-bg1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../public/images/hero.png") no-repeat center center;
+  background-size: contain; /* da ostane cela, može biti i cover ako želite da ispuni kontejner */
+}
+
+.img-container1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; 
+}
+
+.moderator-img{
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+.metrike-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.metrics-title {
+  color: #34a853;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.metrics-loading,
+.metrics-error {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.metrics-summary {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.summary-card {
+  background-color: #f9f9f9;
+  width: 300px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h3 {
+  color: #34a853;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.summary-card p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.distribution-section {
+  margin-top: 20px;
+}
+
+.distribution-title {
+  color: #34a853;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.chart-wrapper {
+  height: 500px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Responsivnost */
+@media (max-width: 768px) {
+  .summary-card {
+    width: 80%;
+  }
+  .chart-wrapper {
+    height: 300px;
+  }
+}
+
+
+.breadcrumbs-container {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumbs {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.breadcrumb-link {
+  color: #34a853;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 5px;
+  color: #ccc;
+}
+
+.breadcrumb-current {
+  font-weight: 600;
+  color: #333;
+}
+
+.breadcrumb-back-btn {
+  background-color: #34a853;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.breadcrumb-back-btn:hover {
+  background-color: #2e9447;
+}
+
+@media (max-width: 768px) {
+  .summary-card {
+    width: 80%;
+  }
+  .chart-wrapper {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+/* Responsivnost */
+@media (max-width: 768px) {
+  .pocetna-hero1 {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-bg-container1 {
+    width: 100%;
+    height: 300px;
+  }
+  .hero-text1 h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .rezervacije-table th,
+  .rezervacije-table td {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Responsivnost: na manjim ekranima slaganje u kolonu */
+@media (max-width: 768px) {
+  .profil-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profil-left {
+    width: auto;
+  }
+  .profil-right {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Animacija za fade-in */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .pocetna-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-bg-container {
+    width: 100%;
+    height: 300px;
+  }
+}
