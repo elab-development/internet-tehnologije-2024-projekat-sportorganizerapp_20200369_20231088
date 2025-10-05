@@ -39,7 +39,7 @@ const MojeRezervacije = ({ token }) => {
 
   const handleUpdate = async (id) => {
     try {
-      await axios.patch(`http://127.0.0.1:8000/api/rezervacije/${id}`, updatedRez, {
+      await axios.patch(`http://127.0.0.1:8000/api/rezervacije/${id}/azuriraj`, updatedRez, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("✅ Rezervacija je uspešno ažurirana!");
@@ -58,7 +58,7 @@ const MojeRezervacije = ({ token }) => {
   const handleDelete = async (id) => {
     if (!window.confirm("Da li sigurno želiš da obrišeš ovu rezervaciju?")) return;
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/rezervacije/${id}`, {
+      await axios.delete(`http://127.0.0.1:8000/api/rezervacije/${id}/obrisi`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("🗑️ Rezervacija uspešno obrisana!");
