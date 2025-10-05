@@ -1,7 +1,7 @@
 import React from "react";
 import { useImages } from "../hooks/useImages";
 
-const DogadjajKarticaModerator = ({ event }) => {
+const DogadjajKarticaModerator = ({ event, onEdit, onDelete }) => {
   const imageUrl = useImages(event.vrsta_sporta);
 
   return (
@@ -20,6 +20,10 @@ const DogadjajKarticaModerator = ({ event }) => {
         </p>
         <p className="dog-cena">Cena: {event.cena_karte} RSD</p>
         {/* Dugme "Pogledaj više" je izostavljeno za moderatore */}
+        <div className="actions">
+          <button onClick={onEdit}>✏️ Uredi</button>
+          <button onClick={onDelete}>🗑️ Obriši</button>
+        </div>
       </div>
     </div>
   );
