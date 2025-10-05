@@ -14,9 +14,6 @@ class TipController extends Controller
      */
     public function index()
     {
-        if (!Auth::check() || Auth::user()->user_type !== 'obican_korisnik') {
-            return response()->json(['error' => 'Nemate dozvolu za pregled rezervacija.'], 403);
-        }
 
         $tipovi = Tip::all(); 
         return TipResource::collection($tipovi); 
