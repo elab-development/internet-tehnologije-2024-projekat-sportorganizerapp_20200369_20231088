@@ -1565,3 +1565,82 @@ body, html {
   background-color: #2e7d32 !important;
   color: white !important;
 }
+
+.rezervacije-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rezervacije-container h2 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.rezervacije-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rezervacije-table th,
+.rezervacije-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.rezervacije-table th {
+  background-color: #f1f8e9;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.rezervacije-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.actions button:hover {
+  opacity: 0.9;
+}
+
+.actions .delete-btn {
+  background-color: #ef5350;
+  color: #fff;
+}
+
+.actions .cancel-btn {
+  background-color: #9e9e9e;
+  color: #fff;
+}
+
+.actions button:first-child {
+  background-color: #43a047;
+  color: #fff;
+}
+
+/* Uredi */
+.actions .edit-btn {
+  background-color: #43a047;
+}
+.actions .edit-btn:hover {
+  background-color: #2e7d32;
+}
+
+/* Obriši */
+.actions .delete-btn {
+  background-color: #e53935;
+}
+.actions .delete-btn:hover {
+  background-color: #c62828;
+}
+
+/* Centriraj celu kolonu */
+.rezervacije-table td.actions {
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+}
