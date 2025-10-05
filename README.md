@@ -18,7 +18,6 @@ Aplikacija obuhvata **REST API (Laravel + MySQL)** i **SPA frontend (React)** sa
 
 ### 1) Neulogovani korisnik (gost)
 - ✅ Registracija i prijava (autentikacija)
-- ✅ Javno dostupne stranice (npr. „O nama“)
 - ❌ Nema pristup listi događaja niti pravljenju rezervacija
 - ❌ Nema pristup moderator alatima
 
