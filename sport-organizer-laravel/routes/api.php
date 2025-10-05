@@ -20,8 +20,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
   Route::get('/rezervacije', [RezervacijaController::class, 'index']);
   Route::post('/rezervacije', [RezervacijaController::class, 'store']);
-  Route::patch('/rezervacije/{rezervacija}', [RezervacijaController::class, 'update']);
-  Route::delete('/rezervacije/{rezervacija}', [RezervacijaController::class, 'destroy']);
+  Route::patch('/rezervacije/{rezervacija}/azuriraj', [RezervacijaController::class, 'update']);
+  Route::delete('/rezervacije/{rezervacija}/obrisi', [RezervacijaController::class, 'destroy']);
 
   Route::apiResource('tipovi', TipController::class);
 
