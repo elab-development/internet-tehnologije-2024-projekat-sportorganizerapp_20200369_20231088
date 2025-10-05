@@ -1644,3 +1644,176 @@ body, html {
   vertical-align: middle;
   border: none;
 }
+
+/* SLIDER SEKCIJA - Poznati sportisti */
+.onama-sportisti {
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 2px solid #43a047;
+  position: relative; /* ostaje u normalnom toku */
+  z-index: 1; /* niži prioritet od navbar-a i ostalog */
+}
+
+.slider-container {
+  position: static; /* umesto absolute */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 0; /* osigurava da bude ispod */
+}
+
+.slider-container h2 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+/* Horizontalni slider */
+.slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 10px;
+  scroll-behavior: smooth;
+  position: relative;
+  z-index: 0;
+}
+
+.slider::-webkit-scrollbar {
+  height: 8px;
+}
+.slider::-webkit-scrollbar-thumb {
+  background-color: #43a047;
+  border-radius: 4px;
+}
+.slider::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+/* Kartice */
+.card {
+  height: 450px;
+  flex: 0 0 260px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.no-image {
+  width: 100%;
+  height: 180px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 0.95rem;
+}
+
+.card-content {
+  padding: 12px;
+}
+
+.card-name {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2e7d32;
+}
+
+.card-sport {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
+}
+
+.card-desc {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #666;
+  height: 800px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* --- Slajder na stranici O Nama (prebija HERO .slider-container) --- */
+.onama-sportisti .slider-container {
+  position: static !important;        /* ukida absolute iz hero-a */
+  pointer-events: auto !important;    /* dozvoli interakciju/scroll */
+  height: auto !important;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 0;
+}
+
+.onama-sportisti .slider-container h2 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Horizontalni scroll kontejner */
+.onama-sportisti .slider {
+  display: flex;
+  flex-wrap: nowrap;                 /* VAŽNO: u jednom redu */
+  overflow-x: auto;                  /* omogući horizontalni scroll */
+  overflow-y: hidden;
+  gap: 16px;
+  padding: 10px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS inercija */
+}
+
+/* Kartice se ne smeju skupljati; neka „štrče” da bi postojalo šta da se skroluje */
+.onama-sportisti .card {
+  flex: 0 0 auto;      /* ne raste/ne skuplja se */
+  width: 280px;        /* širina jedne kartice */
+  min-width: 280px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform .2s ease;
+}
+.onama-sportisti .card:hover { transform: translateY(-4px); }
+
+.onama-sportisti .card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.onama-sportisti .no-image {
+  width: 100%;
+  height: 250px;
+  background: #ddd;
+  display: flex; align-items: center; justify-content: center;
+  color: #777; font-size: .95rem;
+}
+
+/* Scrollbar stil (opciono) */
+.onama-sportisti .slider::-webkit-scrollbar { height: 8px; }
+.onama-sportisti .slider::-webkit-scrollbar-thumb { background: #43a047; border-radius: 4px; }
+.onama-sportisti .slider::-webkit-scrollbar-track { background: #e0e0e0; }

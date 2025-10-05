@@ -1,6 +1,9 @@
 import React from "react";
+import SlajderPoznatihSportista from "../components/SlajderPoznatihSportista";
 
 const ONama = () => {
+  const sportisti = ["Lionel Messi", "Novak Djokovic", "LeBron James", "Usain Bolt", "Roger Federer"];
+
   return (
     <div className="onama-container">
       {/* Gornji naslov i kratak opis */}
@@ -42,15 +45,20 @@ const ONama = () => {
       <section className="onama-socials">
         <h2>Kontaktirajte nas</h2>
         <div className="social-icons">
-          <a href="" className="social-link">Facebook</a>
-          <a href="" className="social-link">Instagram</a>
-          <a href="" className="social-link">Twitter</a>
-          <a href="" className="social-link">YouTube</a>
-          <a href="" className="social-link">LinkedIn</a>
+          <a href="#" className="social-link">Facebook</a>
+          <a href="#" className="social-link">Instagram</a>
+          <a href="#" className="social-link">Twitter</a>
+          <a href="#" className="social-link">YouTube</a>
+          <a href="#" className="social-link">LinkedIn</a>
         </div>
         <p className="onama-footer">
           &copy; {new Date().getFullYear()} Sportify. Sva prava zadržana.
         </p>
+      </section>
+
+      {/* 🔽 Novi deo - Slajder poznatih sportista */}
+      <section className="onama-sportisti">
+        <SlajderPoznatihSportista names={sportisti} />
       </section>
     </div>
   );
