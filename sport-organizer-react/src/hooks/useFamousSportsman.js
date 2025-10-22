@@ -32,6 +32,7 @@ const useFamousSportsman = (names = []) => {
         const apiUrl = `https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${encodeURIComponent(
           name
         )}`;
+        //Greska ce se prikazati bez proxyUrl-a
         const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
         const res = await axios.get(proxyUrl);
         const p = res.data?.player?.[0];
